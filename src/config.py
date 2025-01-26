@@ -26,11 +26,11 @@ class Config:
             self.port = mqtt.port
             
         if args.database:
-            self.db = False
+            self.db = True
             self.dbFile = args.database
 
         if args.debug:
-            _LOGGER.setLevel(logging.DEBUG)
+            logging.basicConfig(level=logging.DEBUG)
         
 
 

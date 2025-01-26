@@ -17,7 +17,8 @@ def main(config):
           Database(config.dbFile) if config.db else nullcontext() as db):
         if config.hass:
             hassDevices = DeviceDescriptions()
-        _LOGGER.info("Write sqlite DB...")
+        if config.db:
+            _LOGGER.info("Write sqlite DB...")
         try:
             for telegram in cul.receiveMessages():
                 if str(telegram.id) in config.meters and telegram.isNoLog():
