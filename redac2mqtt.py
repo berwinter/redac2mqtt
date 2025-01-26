@@ -33,9 +33,10 @@ def main(config):
             _LOGGER.info("Got CTRL+C")
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Read REDAC bus and publish messages via MQTT.')
     parser.add_argument('device', help="CUL device path (e.g. /dev/ttyACM0)")
+    parser.add_argument('meter', help="File containig the IDs of the meters to track", type=open)
     parser.add_argument('--mqtt', help="Enable MQTT publish")
     parser.add_argument('--hass', help="Enable Homeassistant MQTT discovery messages")
     parser.add_argument('--database', help="Enable dumping of all messages into SQLite database")

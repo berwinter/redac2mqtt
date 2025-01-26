@@ -15,6 +15,7 @@ class Config:
         self.topic = "redac"
         self.db = False
         self.dbFile = ""
+        self.meters = [int(x.strip()) for x in args.meter.readlines()]
 
         if args.mqtt:
             self.mqtt = True
@@ -29,7 +30,7 @@ class Config:
             self.dbFile = args.database
 
         if args.debug:
-            logging.setLevel(logging.DEBUG)
+            _LOGGER.setLevel(logging.DEBUG)
         
 
 
