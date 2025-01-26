@@ -6,7 +6,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class MqttClient:
-    def __init__(self, client_id, broker, port, username, password, topic):
+    def __init__(self, broker, port, username, password, topic):
           self._client_id = f'redac2mqtt-{random.randint(0, 1000)}'
           self._broker = broker
           self._port = port

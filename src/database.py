@@ -11,6 +11,7 @@ class Database:
         self._con = sqlite3.connect(self._file)
         self._cur = self._con.cursor()
         self._cur.execute("CREATE TABLE IF NOT EXISTS telegrams (timestamp TIMESTAMP, length INT, framecounter INT, control INT, type INT, id INT, metertime TIMESTAMP, rssi REAL, lqi INT, data BLOB)")
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self._cur.close()

@@ -31,6 +31,3 @@ class Config:
 
         if args.debug:
             logging.basicConfig(level=logging.DEBUG)
-        
-
-
