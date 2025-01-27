@@ -40,7 +40,7 @@ class MeterDescription:
                 }
             }
             if first:
-                data["device"]["name"] = f"{self.name} ({self.id})"
+                data["device"]["name"] = f"{self.name} ({id})"
                 data["device"]["manufacturer"] = "Messtechnik GmbH"
                 data["device"]["model"] = self.model
                 data["device"]["serial_number"] = id
