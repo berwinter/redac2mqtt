@@ -26,7 +26,7 @@ def main(config):
                         hassDevices.publishDiscovery(mqtt, telegram)     
                     if config.mqtt:
                         _LOGGER.debug(f"Sending {config.topic}/{telegram.id}/state")
-                        mqtt.publish(telegram)
+                        mqtt.publishTelegram(telegram)
                 if config.db:
                     db.commit(telegram)
                 _LOGGER.debug(f"{datetime.fromtimestamp(telegram.timestamp)} | Len: {telegram.length} | {telegram.rssi:.1f} dBm | {telegram.lqi}")
