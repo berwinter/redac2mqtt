@@ -21,7 +21,7 @@ def main(config):
             _LOGGER.info("Write sqlite DB...")
         try:
             for telegram in cul.receiveMessages():
-                if str(telegram.id) in config.meters and telegram.isNoLog():
+                if telegram.id in config.meters and telegram.isNoLog():
                     if config.hass:
                         hassDevices.publishDiscovery(mqtt, telegram)     
                     if config.mqtt:
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     parser.add_argument('device', help="CUL device path (e.g. /dev/ttyACM0)")
     parser.add_argument('meter', help="File containig the IDs of the meters to track", type=open)
     parser.add_argument('--mqtt', help="Enable MQTT publish")
-    parser.add_argument('--hass', help="Enable Homeassistant MQTT discovery messages")
+    parser.add_argument('--hass', help="Enable Homeassistant MQTT discovery messages",  action='store_true')
     parser.add_argument('--database', help="Enable dumping of all messages into SQLite database")
     parser.add_argument('--debug', help="Enable debugging messgaes", action='store_true')
 
