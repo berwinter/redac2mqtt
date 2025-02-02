@@ -21,7 +21,7 @@ class MqttClient:
             _LOGGER.error("Failed to connect, return code %d\n", rc)
 
     def __enter__(self):
-        self._client = mqtt_client.Client(self._client_id)
+        self._client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION1, self._client_id)
         self._client.username_pw_set(self._username, self._password)
         self._client.on_connect = self._on_connect
         self._client.connect(self._broker, self._port)
